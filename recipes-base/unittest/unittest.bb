@@ -17,16 +17,19 @@ SRC_URI = "${URL};branch=${BRANCH};protocol=https \
 SECTION = "utils"
 PRIORITY = "optional"
 
+UNITTEST_CONFIG ?= "nanopi-cactus.conf"
+
+
 ###                              ###
 ### debianize makefile functions ###
 ###                              ###
-
 debianize_install[target] = "install"
 debianize_install[tdeps] = "build"
 debianize_install() {
 	@echo "Running install target."
 	install -m 755 -d debian/${BPN}/opt/test
 	cp -r ${PPS}/src/* debian/${BPN}/opt/test
+	cp ${PPS}/src/configs/${UNITTEST_CONFIG} debian/${BPN}/opt/test/.config
 }
 
 debianize_clean[target] = "clean"
