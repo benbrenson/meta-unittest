@@ -3,7 +3,7 @@ LICENSE = "gpl"
 
 inherit dpkg debianize-python
 
-DEB_RDEPENDS += "python3-can python3-serial python3 iproute2"
+DEB_RDEPENDS_append = " python3-can python3-serial python3 iproute2 "
 
 URL = "git://git.pixel-group.de/bennie/python-testframework.git"
 BRANCH = "master"
